@@ -1,0 +1,26 @@
+name: CI/CD Status
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Simulate Build Process
+        run: |
+          echo "Starting CI/CD pipeline..."
+          if [ $((RANDOM % 2)) -eq 0 ]; then
+            echo "Build Successful!"
+            exit 0
+          else
+            echo "Build Failed!"
+            exit 1
+          fi
