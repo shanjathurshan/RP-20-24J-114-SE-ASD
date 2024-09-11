@@ -17,10 +17,5 @@ jobs:
       - name: Simulate Build Process
         run: |
           echo "Starting CI/CD pipeline..."
-          if [ $((RANDOM % 2)) -eq 0 ]; then
-            echo "Build Successful!"
-            exit 0
-          else
-            echo "Build Failed!"
-            exit 1
-          fi
+          echo "Build Successful!"
+          exit 0
